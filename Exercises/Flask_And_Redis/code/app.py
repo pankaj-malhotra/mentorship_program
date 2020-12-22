@@ -6,6 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 r = Redis(host='localhost', port=6379, db=0)
 
+
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('price',
@@ -44,6 +45,7 @@ class Item(Resource):
         r.set(name, data['price'])
         return item, 201
 
+
 class ItemList(Resource):
     def get(self):
         items = []
@@ -55,6 +57,7 @@ class ItemList(Resource):
             return {'items': items}
         else:
             return {'message': "No items are found"}, 404
+
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')
