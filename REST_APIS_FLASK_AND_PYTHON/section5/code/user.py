@@ -1,6 +1,7 @@
 import sqlite3
 from flask_restful import Resource, reqparse
 
+
 class User:
     def __init__(self, _id, username, password):
         self.id = _id
@@ -42,6 +43,7 @@ class User:
         connection.close()
 
         return user
+
 
 class UserRegister(Resource):
     parser = reqparse.RequestParser()

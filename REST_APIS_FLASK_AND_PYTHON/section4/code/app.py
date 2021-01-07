@@ -89,9 +89,11 @@ class Item(Resource):
         return item
         """
 
+
 class ItemList(Resource):
     def get(self):
         return {'items': items}
+
 
 api.add_resource(Item, '/item/<string:name>')
 api.add_resource(ItemList, '/items')

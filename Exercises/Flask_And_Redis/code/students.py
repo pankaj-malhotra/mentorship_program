@@ -84,7 +84,7 @@ class StudentList(Resource):
             students.append({rollNumber.decode("utf-8"): student})
 
         if students:
-            return {'students': students}
+            return {'students': students}, 200
         else:
             return {'message': "No students are found"}, 404
 
@@ -92,4 +92,7 @@ class StudentList(Resource):
 api.add_resource(Student, '/student/<string:roll_no>')
 api.add_resource(StudentList, '/students')
 
-app.run(port=5000)
+
+if __name__ == '__main__':
+    app.run(port=5000)
+

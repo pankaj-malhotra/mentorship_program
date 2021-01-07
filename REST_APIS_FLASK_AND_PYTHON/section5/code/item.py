@@ -2,6 +2,7 @@ import sqlite3
 from flask_restful import Resource, reqparse
 from flask_jwt import jwt_required
 
+
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('price',
@@ -97,6 +98,7 @@ class Item(Resource):
                 return {'message': "An error occurred inserting the item."}, 500
 
         return updated_item, 201
+
 
 class ItemList(Resource):
     def get(self):
